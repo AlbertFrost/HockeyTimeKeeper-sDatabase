@@ -8,7 +8,7 @@ import timekeeper.data.*;
  * Goalie Stats Table
  * 
  * @author Tyson Kendon, Jonathan Hudson
- * @version 2.0
+ * @version 3.0
  *
  */
 public class TableFactory {
@@ -41,6 +41,16 @@ public class TableFactory {
 	 */
 	public static Table listAllGoalieStats(PlayerList playerList) {
 		return new GoalieStatTable(playerList);
+	}
+	
+	/**
+	 * Return HometownTable as String from PlayerList
+	 * 
+	 * @param playerList The PlayerList to convert
+	 * @return The HometownTable for roster
+	 */
+	public static Table listPlayersByHometown(PlayerList playerList) {
+	
 	}
 
 }

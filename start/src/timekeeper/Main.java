@@ -82,7 +82,7 @@ public class Main {
 		System.out.println("1 - List Player Roster");
 		System.out.println("2 - List Skater Stats");
 		System.out.println("3 - List Goalie Stats");
-		System.out.println("4 - List Home Towns Stats");
+		System.out.println("4 - List By Hometown");
 		System.out.println("A - Add player");
 		System.out.println("S # - record a shot for player");
 		System.out.println("G # <#> <#> - record a goal for the first player, optionally assists for the second and third");
@@ -114,6 +114,9 @@ public class Main {
 		case "3":
 			listGoalieStats(list);
 			break;
+		case "4":
+			listByHomeTown(list);
+			break;
 		case "A":
 			addPlayer(list);
 			break;
@@ -142,6 +145,11 @@ public class Main {
 			return false;
 		}
 		return true;
+	}
+
+	private static void listByHomeTown(PlayerList list) {
+		// TODO Implement Method
+		
 	}
 
 	/**
