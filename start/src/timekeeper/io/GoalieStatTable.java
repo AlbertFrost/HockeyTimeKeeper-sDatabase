@@ -11,8 +11,10 @@ import timekeeper.data.*;
  * @version 2.0
  *
  */
-public class GoalieStatTable extends Table {
+public class GoalieStatTable implements Table {
 
+	PlayerList playerList;
+	
 	/**
 	 * Format for goalie stat table
 	 */
@@ -27,14 +29,13 @@ public class GoalieStatTable extends Table {
 	 * @param playerList The PlayerList to store
 	 */
 	public GoalieStatTable(PlayerList playerList) {
-		super(playerList);
+		this.playerList = playerList;
 	}
 
-	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_GOALIE).append("\n");
-		for (Player player : getPlayerList().getPlayers()) {
+		for (Player player : playerList.getPlayers()) {
 			if (player.isGoalie()) {
 				sb.append(getFormattedStats((Goalie) player)).append("\n");
 			}

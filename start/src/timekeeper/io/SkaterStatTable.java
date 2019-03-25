@@ -11,8 +11,9 @@ import timekeeper.data.*;
  * @version 2.0
  *
  */
-public class SkaterStatTable extends Table {
+public class SkaterStatTable implements Table {
 
+	PlayerList playerList;
 	/**
 	 * Format for skater stat table
 	 */
@@ -28,14 +29,14 @@ public class SkaterStatTable extends Table {
 	 * @param playerList The PlayerList to store
 	 */
 	public SkaterStatTable(PlayerList playerList) {
-		super(playerList);
+		this.playerList = playerList;
 	}
 
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_SKATER).append("\n");
-		for (Player player : getPlayerList().getPlayers()) {
+		for (Player player : playerList.getPlayers()) {
 			if (player.isSkater()) {
 				sb.append(getFormattedStats((Skater) player)).append("\n");
 			}

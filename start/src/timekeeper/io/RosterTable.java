@@ -10,8 +10,11 @@ import timekeeper.data.*;
  * @version 2.0
  *
  */
-public class RosterTable extends Table {
+public class RosterTable implements Table {
 
+
+	PlayerList playerList;
+	
 	/**
 	 * Format for roster table
 	 */
@@ -27,14 +30,14 @@ public class RosterTable extends Table {
 	 * @param playerList The PlayerList to store
 	 */
 	public RosterTable(PlayerList playerList) {
-		super(playerList);
+		this.playerList = playerList;
 	}
 
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ROSTER_HEADER).append("\n");
-		for (Player player : getPlayerList().getPlayers()) {
+		for (Player player : playerList.getPlayers()) {
 			sb.append(getFormattedRoster(player)).append("\n");
 		}
 		return sb.toString();

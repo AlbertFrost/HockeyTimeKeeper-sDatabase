@@ -10,41 +10,14 @@ import timekeeper.data.*;
  * @version 2.0
  *
  */
-public abstract class Table {
+public interface Table {
 
-	/**
-	 * The PlayerList stored in table
-	 */
-	private PlayerList playerList;
-
-	/**
-	 * Constructor for table
-	 * 
-	 * @param playerList PlayerList to store
-	 */
-	public Table(PlayerList playerList) {
-		this.playerList = playerList;
-	}
-
-	/**
-	 * The stored player list
-	 * 
-	 * @return The stored PlayerList
-	 */
-	protected PlayerList getPlayerList() {
-		return playerList;
-	}
 
 	/**
 	 * Turns stored PlayerList into a String, used by toString
 	 * 
 	 * @return String version of PlayerList
 	 */
-	public abstract String createTableString();
-
-	@Override
-	public String toString() {
-		return createTableString();
-	}
+	public String createTableString();
 
 }
