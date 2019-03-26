@@ -12,7 +12,7 @@
   * The createTableString() method must sort the Players in the desired fashion, depending on Stats and/or roster information.
 
 * HomeTownTable
-  * Create the HomeTown class that has the responsability of creating a table String that sorts the Players in a collection into order by their home town.
+  * Create the HomeTown class that has the responsibility of creating a table String that sorts the Players in a collection into order by their home town.
    * Class must implement the Table Interface, therefore also creating the createTableString and toString methods.
    * Have the format and header for the table initialized as private static final.
    * Create method getFormattedHometown(Player) which returns a formatted String of the Player's roster information.
