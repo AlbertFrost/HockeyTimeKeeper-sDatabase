@@ -1,5 +1,11 @@
 # Hockey Time Keeper's Database Design Changes
 
+* Player
+  * Add an override for equals, hashCode and implement Comparable for the new collection object to use
+  
+* Skater and Goalie
+  * Implement Comparable 
+
 * Table 
   * Modify the class to be an Interface with two abstract methods:
   * public String createTableString()
