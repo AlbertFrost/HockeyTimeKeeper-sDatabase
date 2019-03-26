@@ -1,7 +1,7 @@
 # Hockey Time Keeper's Database Design Changes
 
 * Table 
-  *Modify the class to be an Interface with two abstract methods:
+  * Modify the class to be an Interface with two abstract methods:
   * public String createTableString()
   * public String toString()
 
