@@ -11,4 +11,5 @@
   * Classes must have createTableString and toString methods to meet the requirments of the Table Interface. the toSting method will simply call the createTableString method which generates a table String for the required format.
 
 * PlayerList 
-  * will no longer have an ArrayList as the collection to hold Players, instead it will be Map<String, Player> where the String as the key is the value's Player's jersey number.
+  * Will no longer have an ArrayList as the collection to hold Players, instead it will be Map<String, Player> where the String as the key is the value's Player's jersey number.
+  * Change the findPlayer method to work with the Map collection and return a null value if there is no Player with the requested jersey number.
