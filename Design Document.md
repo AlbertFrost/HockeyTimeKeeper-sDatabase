@@ -9,7 +9,18 @@
   * No longer function as sub classes of Table but instead implement the Table interface. 
   * Have the classes contain an instance of PlayerList which is taken through the constructor. 
   * Classes must have createTableString and toString methods to meet the requirments of the Table Interface. the toSting method will simply call the createTableString method which generates a table String for the required format.
+  * The createTableString() method must sort the Players in the desired fashion.
+
+* HomeTownTable
+  * Create the HomeTown class that has the responsability of creating a table String that sorts the Players in a collection into order by their home town.
+   * Class must implement the Table Interface, therefore also creating the createTableString and toString methods.
+   * Have the format and header for the table initialized as private static final.
+   * Create method getFormattedHometown(Player) which returns a formatted String of the Player's roster information.
 
 * PlayerList 
   * Will no longer have an ArrayList as the collection to hold Players, instead it will be Map<String, Player> where the String as the key is the value's Player's jersey number.
   * Change the findPlayer method to work with the Map collection and return a null value if there is no Player with the requested jersey number.
+  
+* Implement exceptions for the TeamWriter and TeamReader to avoid file errors and have the user fix the issue.
+
+* Implement exception handling for any input of data from the user and when errors occur, have the user resolve the issue.
