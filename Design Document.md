@@ -1,10 +1,11 @@
 # Hockey Time Keeper's Database Design Changes
 
-* Modify the Table class to be an Interface with two abstract methods:
+* Table 
+  *Modify the class to be an Interface with two abstract methods:
   * public String createTableString()
   * public String toString()
 
-* Change RosterTable, GoalieStatTable, SkaterStatTable 
+* RosterTable, GoalieStatTable, SkaterStatTable 
   * No longer function as sub classes of Table but instead implement the Table interface. 
   * Have the classes contain an instance of PlayerList which is taken through the constructor. 
   * Classes must have createTableString and toString methods to meet the requirments of the Table Interface. the toSting method will simply call the createTableString method which generates a table String for the required format.
