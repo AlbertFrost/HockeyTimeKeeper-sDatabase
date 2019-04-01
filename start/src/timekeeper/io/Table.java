@@ -20,4 +20,5 @@ public interface Table {
 	 */
 	public String createTableString();
 
+	public String toString();
 }

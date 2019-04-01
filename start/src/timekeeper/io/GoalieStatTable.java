@@ -51,5 +51,11 @@ public class GoalieStatTable implements Table {
 	private static String getFormattedStats(Goalie goalie) {
 		return String.format(STATS_FORMAT_GOALIE, goalie.getName(), goalie.getNumber(), goalie.getShotsAgainst(), goalie.getGoalsAgainst(), String.format("%4.2f", goalie.getGoalsAgainstAverage()), String.format("%5.3f", goalie.getSavePercentage()), goalie.getShutouts(), goalie.getMinutes());
 	}
+	
+	@Override
+	public String toString()
+	{
+		return createTableString();
+	}
 
 }

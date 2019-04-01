@@ -50,7 +50,7 @@ public class TableFactory {
 	 * @return The HometownTable for roster
 	 */
 	public static Table listPlayersByHometown(PlayerList playerList) {
-	
+		return new HometownTable(playerList);
 	}
 
 }
