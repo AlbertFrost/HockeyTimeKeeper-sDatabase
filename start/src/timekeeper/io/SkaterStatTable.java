@@ -1,5 +1,7 @@
 package timekeeper.io;
 
+import java.util.Map;
+
 import timekeeper.data.*;
 
 /**
@@ -14,6 +16,7 @@ import timekeeper.data.*;
 public class SkaterStatTable implements Table {
 
 	PlayerList playerList;
+	Map<String, Player> players;
 	/**
 	 * Format for skater stat table
 	 */
@@ -30,13 +33,15 @@ public class SkaterStatTable implements Table {
 	 */
 	public SkaterStatTable(PlayerList playerList) {
 		this.playerList = playerList;
+		this.players = playerList.getMap();
 	}
 
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_SKATER).append("\n");
-		for (Player player : playerList.getPlayers()) {
+		for (Map.Entry<String, Player> p: players.entrySet()) {
+			Player player = (Player) p;
 			if (player.isSkater()) {
 				sb.append(getFormattedStats((Skater) player)).append("\n");
 			}

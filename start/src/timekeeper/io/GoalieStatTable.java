@@ -1,5 +1,7 @@
 package timekeeper.io;
 
+import java.util.Map;
+
 import timekeeper.data.*;
 
 /**
@@ -14,6 +16,7 @@ import timekeeper.data.*;
 public class GoalieStatTable implements Table {
 
 	PlayerList playerList;
+	Map<String, Player> players;
 	
 	/**
 	 * Format for goalie stat table
@@ -30,12 +33,14 @@ public class GoalieStatTable implements Table {
 	 */
 	public GoalieStatTable(PlayerList playerList) {
 		this.playerList = playerList;
+		this.players = playerList.getMap();
 	}
 
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_GOALIE).append("\n");
-		for (Player player : playerList.getPlayers()) {
+		for (Map.Entry<String, Player> p: players.entrySet()) {
+			Player player = (Player) p;
 			if (player.isGoalie()) {
 				sb.append(getFormattedStats((Goalie) player)).append("\n");
 			}

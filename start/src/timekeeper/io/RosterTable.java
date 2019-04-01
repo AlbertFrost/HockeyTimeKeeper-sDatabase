@@ -1,5 +1,7 @@
 package timekeeper.io;
 
+import java.util.Map;
+
 import timekeeper.data.*;
 
 /**
@@ -14,6 +16,7 @@ public class RosterTable implements Table {
 
 
 	PlayerList playerList;
+	Map<String, Player> players;
 	
 	/**
 	 * Format for roster table
@@ -31,14 +34,15 @@ public class RosterTable implements Table {
 	 */
 	public RosterTable(PlayerList playerList) {
 		this.playerList = playerList;
+		this.players = playerList.getMap();
 	}
 
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ROSTER_HEADER).append("\n");
-		for (Player player : playerList.getPlayers()) {
-			sb.append(getFormattedRoster(player)).append("\n");
+		for (Map.Entry<String, Player> player: players.entrySet()) {
+			sb.append(getFormattedRoster((Player) player)).append("\n");
 		}
 		return sb.toString();
 	}

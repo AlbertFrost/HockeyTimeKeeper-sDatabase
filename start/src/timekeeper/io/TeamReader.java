@@ -51,7 +51,7 @@ public class TeamReader {
 				playerScanner.close();
 				return null;
 			}
-			playerList.addPlayer(player);
+			//playerList.addPlayer(player);
 		}
 		playerScanner.close();
 		return playerList;

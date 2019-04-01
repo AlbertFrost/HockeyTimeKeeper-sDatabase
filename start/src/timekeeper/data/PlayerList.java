@@ -1,5 +1,5 @@
 package timekeeper.data;
-import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * <h1>W19 - COMP 1502 - Assignment 2 PlayerList Class</h1> Holds a list of
@@ -16,13 +16,12 @@ public class PlayerList {
 	/**
 	 * The Players in the list
 	 */
-	private ArrayList<Player> players;
+	private Map<String, Player> players;
 
 	/**
 	 * Construct a new empty PlayerList
 	 */
 	public PlayerList() {
-		players = new ArrayList<>();
 	}
 
 	/**
@@ -30,7 +29,7 @@ public class PlayerList {
 	 * 
 	 * @return The ArrayList of Players stored
 	 */
-	public ArrayList<Player> getPlayers() {
+	public Map<String, Player> getMap() {
 		return players;
 	}
 
@@ -41,11 +40,11 @@ public class PlayerList {
 	 * @return The player found with jersey number, if no player found then null
 	 */
 	public Player getPlayerByNumber(String number) {
-		for (Player p : players) {
-			if (p.getNumber().equals(number)) {
-				return p;
-			}
-		}
+		Player foundPlayer = null;
+		
+		if(players.containsKey(number))
+			foundPlayer = players.get(number);
+		
 		return null;
 	}
 
@@ -56,9 +55,9 @@ public class PlayerList {
 	 * @return The skater found with jersey number, if no skater found then null
 	 */
 	public Skater getSkaterByNumber(String playerNumber) {
-		for (Player p : players) {
-			if (p.getNumber().equals(playerNumber) && p.isSkater()) {
-				return (Skater) p;
+		if(players.containsKey(playerNumber)) {
+			if (players.get(playerNumber).isSkater()) {
+				return (Skater) players.get(playerNumber);
 			}
 		}
 		return null;
@@ -71,9 +70,9 @@ public class PlayerList {
 	 * @return The goalie found with jersey number, if no goalie found then null
 	 */
 	public Goalie getGoalieByNumber(String playerNumber) {
-		for (Player p : players) {
-			if (p.getNumber().equals(playerNumber) && p.isGoalie()) {
-				return (Goalie) p;
+		if(players.containsKey(playerNumber)) {
+			if (players.get(playerNumber).isGoalie()) {
+				return (Goalie) players.get(playerNumber);
 			}
 		}
 		return null;
@@ -85,7 +84,7 @@ public class PlayerList {
 	 * @param p The Player to add
 	 */
 	public void addPlayer(Player p) {
-		players.add(p);
+		players.put(p.getNumber(), p);
 	}
 
 	/**

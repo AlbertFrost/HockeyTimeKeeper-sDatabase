@@ -3,6 +3,7 @@ package timekeeper.io;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import timekeeper.data.*;
 
@@ -32,7 +33,8 @@ public class TeamWriter {
 	 */
 	public static boolean recordToFile(File file, PlayerList playerList) throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter(file);
-		for (Player player : playerList.getPlayers()) {
+		for (Map.Entry<String, Player> p: playerList.getMap().entrySet()) {
+			Player player = (Player) p;
 			if (player.isGoalie()) {
 				printWriter.println(getFileFormatString((Goalie) player));
 			} else {
