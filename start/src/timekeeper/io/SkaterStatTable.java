@@ -41,7 +41,7 @@ public class SkaterStatTable implements Table {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_SKATER).append("\n");
 		for (Map.Entry<String, Player> p: players.entrySet()) {
-			Player player = (Player) p;
+			Player player = p.getValue();
 			if (player.isSkater()) {
 				sb.append(getFormattedStats((Skater) player)).append("\n");
 			}

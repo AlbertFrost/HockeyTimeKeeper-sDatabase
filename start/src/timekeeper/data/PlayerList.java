@@ -1,4 +1,5 @@
 package timekeeper.data;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -22,6 +23,7 @@ public class PlayerList {
 	 * Construct a new empty PlayerList
 	 */
 	public PlayerList() {
+		players = new HashMap<>();
 	}
 
 	/**
@@ -45,7 +47,7 @@ public class PlayerList {
 		if(players.containsKey(number))
 			foundPlayer = players.get(number);
 		
-		return null;
+		return foundPlayer;
 	}
 
 	/**
@@ -84,7 +86,8 @@ public class PlayerList {
 	 * @param p The Player to add
 	 */
 	public void addPlayer(Player p) {
-		players.put(p.getNumber(), p);
+		if(!players.containsKey(p.getNumber()))
+			players.put(p.getNumber(), p);
 	}
 
 	/**

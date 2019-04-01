@@ -42,7 +42,7 @@ public class RosterTable implements Table {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ROSTER_HEADER).append("\n");
 		for (Map.Entry<String, Player> player: players.entrySet()) {
-			sb.append(getFormattedRoster((Player) player)).append("\n");
+			sb.append(getFormattedRoster(player.getValue())).append("\n");
 		}
 		return sb.toString();
 	}

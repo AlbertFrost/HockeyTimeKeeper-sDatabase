@@ -40,7 +40,7 @@ public class GoalieStatTable implements Table {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_GOALIE).append("\n");
 		for (Map.Entry<String, Player> p: players.entrySet()) {
-			Player player = (Player) p;
+			Player player = p.getValue();
 			if (player.isGoalie()) {
 				sb.append(getFormattedStats((Goalie) player)).append("\n");
 			}
