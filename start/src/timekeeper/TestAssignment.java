@@ -116,42 +116,235 @@ public class TestAssignment {
 	@Test
 	public void testSortPlayerByNumber()
 	{
-		PlayerList playerList = new PlayerList();
-		int counter = 1;
+		ArrayList<Player> players = new ArrayList<>();
 		
-		String name = "Albert Morozov";
-		String dateOfBirth = "Aug 3 2000";
-		String homeTown = "Calgary AB";
-		String weight = "138";
-		String height = "5\'8";
+		String name1 = "Albert Morozov";
+		String dateOfBirth1 = "Aug 3 2000";
+		String homeTown1 = "Calgary AB";
+		String weight1 = "138";
+		String height1 = "5\'8";
 		String number1 = "1";
+		
+		String name2 = "Rachel Smith";
+		String dateOfBirth2 = "Feb 14 1995";
+		String homeTown2 = "Edmonton AB";
+		String weight2 = "130";
+		String height2 = "5\'6";
 		String number2 = "2";
+		
+		String name3 = "Robert Rose";
+		String dateOfBirth3 = "Nov 18 1999";
+		String homeTown3 = "Red Deer AB";
+		String weight3 = "150";
+		String height3 = "5\'9";
 		String number3 = "3";
 		
-		playerList.addPlayer(new Skater(name, Position.C, number3, dateOfBirth, homeTown, weight, height));	
-		playerList.addPlayer(new Skater(name, Position.C, number1, dateOfBirth, homeTown, weight, height));	
-		playerList.addPlayer(new Skater(name, Position.C, number2, dateOfBirth, homeTown, weight, height));	
+		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
+		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
+		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
 	
-		String table = TableFactory.listAllPlayersRoster(playerList).createTableString();
-	
-		ArrayList<String> lines = new ArrayList<>(Arrays.asList(table.split("\n")));
+		PlayerNumberComparator comp = new PlayerNumberComparator();
+		Collections.sort(players, comp);
 		
-		for(String line : lines)
-		{
-			ArrayList<String> data = new ArrayList<>(Arrays.asList(table.split(" ")));
-			
-			if(data.get(1).equals("#"))
-				continue;
-			else {
-				switch(counter)
-				{
-					case 1: assertEquals(data.get(1), number1); break;
-					case 2: assertEquals(data.get(1), number2); break;
-					case 3: assertEquals(data.get(1), number3); break;
-				}
-			}
-			
-		}
+		assertEquals(players.get(0).getNumber(), number1);
+		assertEquals(players.get(1).getNumber(), number2);
+		assertEquals(players.get(2).getNumber(), number3);
+	}
+	
+	@Test
+	public void testSortPlayerByName()
+	{
+		ArrayList<Player> players = new ArrayList<>();
+		
+		String name1 = "Albert Morozov";
+		String dateOfBirth1 = "Aug 3 2000";
+		String homeTown1 = "Calgary AB";
+		String weight1 = "138";
+		String height1 = "5\'8";
+		String number1 = "1";
+		
+		String name2 = "Beth Smith";
+		String dateOfBirth2 = "Feb 14 1995";
+		String homeTown2 = "Edmonton AB";
+		String weight2 = "130";
+		String height2 = "5\'6";
+		String number2 = "2";
+		
+		String name3 = "Robert Rose";
+		String dateOfBirth3 = "Nov 18 1999";
+		String homeTown3 = "Red Deer AB";
+		String weight3 = "150";
+		String height3 = "5\'9";
+		String number3 = "3";
+		
+		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
+		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
+		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
+	
+		PlayerNameComparator comp = new PlayerNameComparator();
+		Collections.sort(players, comp);
+		
+		assertEquals(players.get(0).getName(), name1);
+		assertEquals(players.get(1).getName(), name2);
+		assertEquals(players.get(2).getName(), name3);
+	}
+	
+	@Test
+	public void testSortSkaterByStat()
+	{
+		ArrayList<Player> players = new ArrayList<>();
+		
+		String name1 = "Ashly Matvely";
+		String dateOfBirth1 = "Aug 3 2000";
+		String homeTown1 = "Calgary AB";
+		String weight1 = "138";
+		String height1 = "5\'8";
+		String number1 = "1";
+		int goals1 = 8;
+		int assists1 = 7;
+		int powerPlayGoals1 = 6;
+		int powerPlayAssists1 = 7;
+		int shots1 = 20;
+		
+		String name2 = "Beth Smith";
+		String dateOfBirth2 = "Feb 14 1995";
+		String homeTown2 = "Edmonton AB";
+		String weight2 = "130";
+		String height2 = "5\'6";
+		String number2 = "2";
+		int goals2 = 7;
+		int assists2 = 8;
+		int powerPlayGoals2 = 7;
+		int powerPlayAssists2 = 7;
+		int shots2 = 14;
+		
+		String name3 = "Robert Rose";
+		String dateOfBirth3 = "Nov 18 1999";
+		String homeTown3 = "Red Deer AB";
+		String weight3 = "150";
+		String height3 = "5\'9";
+		String number3 = "3";
+		int goals3 = 3;
+		int assists3 = 3;
+		int powerPlayGoals3 = 3;
+		int powerPlayAssists3 = 3;
+		int shots3 = 6;
+		
+		String name4 = "Zelda LaFleche";
+		String dateOfBirth4 = "May 8 2001";
+		String homeTown4 = "Lethbridge AB";
+		String weight4 = "145";
+		String height4 = "5\'7";
+		String number4 = "4";
+		int goals4 = 3;
+		int assists4 = 3;
+		int powerPlayGoals4 = 3;
+		int powerPlayAssists4 = 3;
+		int shots4 = 6;
+		
+		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
+		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
+		players.add(new Skater(name4, Position.C, number4, dateOfBirth4, homeTown4, weight4, height4));	
+		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
+	
+		SkaterStatComparator comp = new SkaterStatComparator();
+		Collections.sort(players, comp);
+		
+		assertEquals(players.get(0).getName(), name1);
+		assertEquals(players.get(1).getName(), name2);
+		assertEquals(players.get(2).getName(), name3);
+		assertEquals(players.get(3).getName(), name4);
+	}
+	
+	@Test
+	public void testSortGoalieByStat()
+	{
+		ArrayList<Player> players = new ArrayList<>();
+		
+		//85% SV
+		String name1 = "Ashly Matvely";
+		String dateOfBirth1 = "Aug 3 2000";
+		String homeTown1 = "Calgary AB";
+		String weight1 = "138";
+		String height1 = "5\'8";
+		String number1 = "1";
+		int shotsAgainst1 = 20;
+		int goalsAgainst1 = 3;
+		int shutouts1 = 2;
+		int minutes1 = 300;
+
+		//70% SV
+		String name2 = "Beth Smith";
+		String dateOfBirth2 = "Feb 14 1995";
+		String homeTown2 = "Edmonton AB";
+		String weight2 = "130";
+		String height2 = "5\'6";
+		String number2 = "2";
+		int shotsAgainst2 = 10;
+		int goalsAgainst2 = 3;
+		int shutouts2 = 2;
+		int minutes2 = 300;
+
+		//20% SV
+		String name3 = "Robert Rose";
+		String dateOfBirth3 = "Nov 18 1999";
+		String homeTown3 = "Red Deer AB";
+		String weight3 = "150";
+		String height3 = "5\'9";
+		String number3 = "3";
+		int shotsAgainst3 = 5;
+		int goalsAgainst3 = 3;
+		int shutouts3 = 2;
+		int minutes3 = 300;
+		
+		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
+		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
+		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
+	
+		GoalieStatComparator comp = new GoalieStatComparator();
+		Collections.sort(players, comp);
+		
+		assertEquals(players.get(0).getName(), name1);
+		assertEquals(players.get(1).getName(), name2);
+		assertEquals(players.get(2).getName(), name3);
+	}
+
+	@Test
+	public void testSortPlayerByHometown()
+	{
+		ArrayList<Player> players = new ArrayList<>();
+		
+		String name1 = "Albert Morozov";
+		String dateOfBirth1 = "Aug 3 2000";
+		String homeTown1 = "Calgary AB";
+		String weight1 = "138";
+		String height1 = "5\'8";
+		String number1 = "1";
+		
+		String name2 = "Rachel Smith";
+		String dateOfBirth2 = "Feb 14 1995";
+		String homeTown2 = "Edmonton AB";
+		String weight2 = "130";
+		String height2 = "5\'6";
+		String number2 = "2";
+		
+		String name3 = "Robert Rose";
+		String dateOfBirth3 = "Nov 18 1999";
+		String homeTown3 = "Red Deer AB";
+		String weight3 = "150";
+		String height3 = "5\'9";
+		String number3 = "3";
+		
+		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
+		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
+		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
+	
+		PlayerHometownComparator comp = new PlayerHometownComparator();
+		Collections.sort(players, comp);
+		
+		assertEquals(players.get(0).getHomeTown(), homeTown1);
+		assertEquals(players.get(1).getHomeTown(), homeTown2);
+		assertEquals(players.get(2).getHomeTown(), homeTown3);
 	}
 
 }
