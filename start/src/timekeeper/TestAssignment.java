@@ -1,12 +1,10 @@
 package timekeeper;
 
 import static org.junit.Assert.*;
-
-
 import org.junit.Test;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 
 import timekeeper.data.*;
 import timekeeper.io.*;
@@ -192,7 +190,7 @@ public class TestAssignment {
 	@Test
 	public void testSortSkaterByStat()
 	{
-		ArrayList<Player> players = new ArrayList<>();
+		ArrayList<Skater> players = new ArrayList<>();
 		
 		String name1 = "Ashly Matvely";
 		String dateOfBirth1 = "Aug 3 2000";
@@ -241,25 +239,39 @@ public class TestAssignment {
 		int powerPlayGoals4 = 3;
 		int powerPlayAssists4 = 3;
 		int shots4 = 6;
+
+		String name5 = "Lima November";
+		String dateOfBirth5 = "Jul 4 1978";
+		String homeTown5 = "Medicine Hat AB";
+		String weight5 = "143";
+		String height5 = "5\'8";
+		String number5 = "5";
+		int goals5 = 8;
+		int assists5 = 10;
+		int powerPlayGoals5 = 6;
+		int powerPlayAssists5 = 7;
+		int shots5 = 20;
 		
-		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
-		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
-		players.add(new Skater(name4, Position.C, number4, dateOfBirth4, homeTown4, weight4, height4));	
-		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
+		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3, goals3, assists3, powerPlayGoals3, powerPlayAssists3, shots3));	
+		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1, goals1, assists1, powerPlayGoals1, powerPlayAssists1, shots1));	
+		players.add(new Skater(name4, Position.C, number4, dateOfBirth4, homeTown4, weight4, height4, goals4, assists4, powerPlayGoals4, powerPlayAssists4, shots4));	
+		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2, goals2, assists2, powerPlayGoals2, powerPlayAssists2, shots2));		
+		players.add(new Skater(name5, Position.C, number5, dateOfBirth5, homeTown5, weight5, height5, goals5, assists5, powerPlayGoals5, powerPlayAssists5, shots5));	
 	
 		SkaterStatComparator comp = new SkaterStatComparator();
 		Collections.sort(players, comp);
-		
-		assertEquals(players.get(0).getName(), name1);
-		assertEquals(players.get(1).getName(), name2);
-		assertEquals(players.get(2).getName(), name3);
-		assertEquals(players.get(3).getName(), name4);
+
+		assertEquals(players.get(0).getName(), name5);
+		assertEquals(players.get(1).getName(), name1);
+		assertEquals(players.get(2).getName(), name2);
+		assertEquals(players.get(3).getName(), name3);
+		assertEquals(players.get(4).getName(), name4);
 	}
 	
 	@Test
 	public void testSortGoalieByStat()
 	{
-		ArrayList<Player> players = new ArrayList<>();
+		ArrayList<Goalie> players = new ArrayList<>();
 		
 		//85% SV
 		String name1 = "Ashly Matvely";
@@ -297,9 +309,9 @@ public class TestAssignment {
 		int shutouts3 = 2;
 		int minutes3 = 300;
 		
-		players.add(new Skater(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3));	
-		players.add(new Skater(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1));	
-		players.add(new Skater(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2));	
+		players.add(new Goalie(name3, Position.C, number3, dateOfBirth3, homeTown3, weight3, height3, shotsAgainst3, goalsAgainst3, shutouts3, minutes3));	
+		players.add(new Goalie(name1, Position.C, number1, dateOfBirth1, homeTown1, weight1, height1, shotsAgainst1, goalsAgainst1, shutouts1, minutes1));	
+		players.add(new Goalie(name2, Position.C, number2, dateOfBirth2, homeTown2, weight2, height2, shotsAgainst2, goalsAgainst2, shutouts2, minutes2));	
 	
 		GoalieStatComparator comp = new GoalieStatComparator();
 		Collections.sort(players, comp);
