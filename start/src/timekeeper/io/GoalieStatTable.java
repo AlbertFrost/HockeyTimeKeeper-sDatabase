@@ -1,5 +1,7 @@
 package timekeeper.io;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 import timekeeper.data.*;
@@ -39,11 +41,14 @@ public class GoalieStatTable implements Table {
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_GOALIE).append("\n");
-		for (Map.Entry<String, Player> p: players.entrySet()) {
-			Player player = p.getValue();
-			if (player.isGoalie()) {
-				sb.append(getFormattedStats((Goalie) player)).append("\n");
-			}
+		
+		ArrayList<Goalie> goalies = getGoaliesFromMap();
+		GoalieStatComparator comp = new GoalieStatComparator();
+		
+		Collections.sort(goalies, comp);
+		
+		for (Goalie goalie:goalies) {
+				sb.append(getFormattedStats(goalie)).append("\n");
 		}
 		return sb.toString();
 	}
@@ -61,6 +66,21 @@ public class GoalieStatTable implements Table {
 	public String toString()
 	{
 		return createTableString();
+	}
+	
+	private ArrayList<Goalie> getGoaliesFromMap()
+	{
+		ArrayList<Goalie> goalies = new ArrayList<>();
+		
+		for (Map.Entry<String, Player> p: players.entrySet()) 
+		{
+			Player player = p.getValue();
+			if (player.isGoalie()) {
+				goalies.add((Goalie) player);
+			}
+		}
+		
+		return goalies;
 	}
 
 }
