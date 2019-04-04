@@ -1,6 +1,8 @@
 package timekeeper.io;
 
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import timekeeper.data.*;
 
@@ -41,8 +43,13 @@ public class RosterTable implements Table {
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ROSTER_HEADER).append("\n");
-		for (Map.Entry<String, Player> player: players.entrySet()) {
-			sb.append(getFormattedRoster(player.getValue())).append("\n");
+		
+		ArrayList<Player> rosterPlayers = (ArrayList<Player>) players;
+		PlayerNumberComparator comp = new PlayerNumberComparator();
+		Collections.sort(rosterPlayers, comp);
+		
+		for (Player player: rosterPlayers) {
+			sb.append(getFormattedRoster(player)).append("\n");
 		}
 		return sb.toString();
 	}

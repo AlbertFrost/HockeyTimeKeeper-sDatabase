@@ -11,8 +11,11 @@ public class PlayerNumberComparator implements Comparator<Player> {
 			return 1;
 		else if(a.getNumber().compareTo(b.getNumber()) < 1)
 			return -1;
-		else
-			return 0;
+		else{
+
+			PlayerNameComparator comp = new PlayerNameComparator();
+			return comp.compare(a, b);
+		}
 	}
 	
 }
