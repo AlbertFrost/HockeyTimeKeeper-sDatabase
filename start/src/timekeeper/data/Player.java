@@ -169,5 +169,26 @@ public abstract class Player implements Comparable<Player> {
 		
 		return name.compareTo(player.getName());
 	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o != null)
+			if(o instanceof Player)
+			{
+				Player p = (Player) o;
+				if(name.equals(p.getName()) && number.equals(p.getNumber()) && position.equals(p.getPosition()) && dateOfBirth.equals(p.getDateOfBirth())
+						&& homeTown.equals(p.getHomeTown()) && weight.equals(p.getWeight()) && height.equals(p.getHeight()))
+					return true;
+			}
+			
+		return false;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return name.hashCode();
+	}
 
 }

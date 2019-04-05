@@ -48,8 +48,6 @@ public class RosterTable implements Table {
 		PlayerNumberComparator comp = new PlayerNumberComparator();
 		Collections.sort(rosterPlayers, comp);
 		
-		System.out.println(rosterPlayers);
-		
 		for (Player player: rosterPlayers) {
 			sb.append(getFormattedRoster(player)).append("\n");
 		}
