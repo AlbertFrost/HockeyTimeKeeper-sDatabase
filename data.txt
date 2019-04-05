@@ -9,5 +9,5 @@ $,Blayre Turnbull,LW,40,"Jul 15 1993","Stellarton NS",160,5'7,8,7,2,0,31
 $,Katelyn Gosling,D,51,"May 10 1993","London ON",150,5'5,6,7,0,1,28
 $,Venla Hovi,C,7,"Oct 28 1987","Tampere Finland",145,5'7,5,7,1,0,26
 @,Emerance Maschmeyer,G,1,"Oct 5 1994","Bruderheim AB",147,5'6,382,29,5,1080
-@,Alex Rigsby,G,38,"Jan 3 1992","Delafield WI",150,5'7,378,29,1,849
+@,Alex Rigsby,G,38,"Jan 3 1992","Calgary AB",150,5'7,378,29,1,849
 @,Albert Morozov,G,3,"Aug 3 2000","Calgary AB",136,5'8,3,1,1,100

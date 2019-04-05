@@ -7,9 +7,9 @@ public class PlayerNumberComparator implements Comparator<Player> {
 	@Override
 	public int compare(Player a, Player b)
 	{
-		if(a.getNumber().compareTo(b.getNumber()) > 1)
+		if(Integer.parseInt(a.getNumber()) > Integer.parseInt(b.getNumber()))
 			return 1;
-		else if(a.getNumber().compareTo(b.getNumber()) < 1)
+		else if(Integer.parseInt(a.getNumber()) < Integer.parseInt(b.getNumber()))
 			return -1;
 		else{
 

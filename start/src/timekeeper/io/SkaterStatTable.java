@@ -63,6 +63,12 @@ public class SkaterStatTable implements Table {
 		return String.format(STATS_FORMAT_SKATER, skater.getName(), skater.getNumber(), skater.getPoints(), skater.getGoals(), skater.getAssists(), skater.getPowerPlayPoints(), skater.getPowerPlayGoals(), skater.getPowerPlayAssists(), skater.getShots(), String.format("%3.2f", skater.getShootingPercentage()));
 	}
 	
+	@Override
+	public String toString()
+	{
+		return createTableString();
+	}
+	
 	private ArrayList<Skater> getSkatersFromMap()
 	{
 		ArrayList<Skater> skaters = new ArrayList<>();

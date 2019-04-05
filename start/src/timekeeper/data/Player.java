@@ -8,7 +8,7 @@ package timekeeper.data;
  * @version 2.0
  *
  */
-public abstract class Player {
+public abstract class Player implements Comparable<Player> {
 
 	/**
 	 * String name of player
@@ -158,6 +158,16 @@ public abstract class Player {
 	 */
 	public boolean isSkater() {
 		return position.isSkater();
+	}
+	
+	@Override
+	public int compareTo(Player player)
+	{
+		int numberDifference = -number.compareTo(player.getNumber());
+		if(numberDifference != 0)
+			return numberDifference;
+		
+		return name.compareTo(player.getName());
 	}
 
 }

@@ -44,9 +44,11 @@ public class RosterTable implements Table {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ROSTER_HEADER).append("\n");
 		
-		ArrayList<Player> rosterPlayers = (ArrayList<Player>) players;
+		ArrayList<Player> rosterPlayers = Table.mapToArrayList(players);
 		PlayerNumberComparator comp = new PlayerNumberComparator();
 		Collections.sort(rosterPlayers, comp);
+		
+		System.out.println(rosterPlayers);
 		
 		for (Player player: rosterPlayers) {
 			sb.append(getFormattedRoster(player)).append("\n");
@@ -62,6 +64,12 @@ public class RosterTable implements Table {
 	 */
 	private static String getFormattedRoster(Player player) {
 		return String.format(ROSTER_FORMAT, player.getName(), player.getNumber(), player.getPosition(), player.getDateOfBirth(), player.getHomeTown(), player.getWeight(), player.getHeight());
+	}
+	
+	@Override
+	public String toString()
+	{
+		return createTableString();
 	}
 
 }

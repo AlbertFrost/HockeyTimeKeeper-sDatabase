@@ -1,5 +1,8 @@
 package timekeeper.io;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import timekeeper.data.*;
 
 /**
@@ -21,4 +24,15 @@ public interface Table {
 	public String createTableString();
 
 	public String toString();
+	
+	public static ArrayList<Player> mapToArrayList(Map<String, Player> map){
+		ArrayList<Player> players = new ArrayList<>();
+		
+		for(Player p: map.values())
+		{
+			players.add(p);
+		}
+		
+		return players;
+	}
 }

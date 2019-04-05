@@ -147,8 +147,8 @@ public class Main {
 		return true;
 	}
 
-	private static void listByHomeTown(PlayerList list) {
-		// TODO Implement Method
+	private static void listByHomeTown(PlayerList playerList) {
+		System.out.println(TableFactory.listPlayersByHometown(playerList));
 		
 	}
 
