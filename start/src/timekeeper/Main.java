@@ -40,7 +40,10 @@ public class Main {
 			System.out.println("New list created");
 		} else {
 			list = TeamReader.loadPlayerList(new File(filename));
-			System.out.println("File loaded");
+			if(list.isEmpty())
+				System.out.println("File not loaded");
+			else
+				System.out.println("File loaded");
 		}
 		System.out.println("Time Keeper DB V3");
 		runMenu(list);

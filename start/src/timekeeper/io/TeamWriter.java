@@ -51,7 +51,7 @@ public class TeamWriter {
 		catch(IllegalArgumentException e)
 		{
 			System.err.println("Cannot find the file: "+file.getName());
-			throw new FileNotFoundException();
+			return false;
 		}
 		return true;
 	}

@@ -36,7 +36,7 @@ public class TeamReader {
 		try 
 		{
 			Scanner playerScanner = new Scanner(file);
-			int lineNumber = 0;
+			int lineNumber = 1;
 			while (playerScanner.hasNextLine()) {
 				String playerString = playerScanner.nextLine();
 				Player player;
@@ -64,7 +64,6 @@ public class TeamReader {
 		}
 		catch(FileNotFoundException E) {
 			System.err.println("Cannot find the file: "+file.getName());
-			throw new FileNotFoundException();
 		}
 		return playerList;
 	}
@@ -78,7 +77,7 @@ public class TeamReader {
 	private static Player loadSkater(String playerString) {
 		ArrayList<String> data = new ArrayList<>(Arrays.asList(playerString.split(",")));
 		if(data.size() != 12)
-			throw new IllegalArgumentException("Issue in gathering data for Skater object \nThere are "+data.size()+" data points on line but should have 12 data points");
+			throw new IllegalArgumentException("Issue in gathering data for Skater object \nThere are "+data.size()+" data points but should have 12 data points");
 		
 		String name = data.get(0);
 		Position position = Position.valueOf(data.get(1));
@@ -105,7 +104,7 @@ public class TeamReader {
 		ArrayList<String> data = new ArrayList<>(Arrays.asList(playerString.split(",")));
 		
 		if(data.size() != 11)
-			throw new IllegalArgumentException("Issue in gathering data for Goalie object \\nThere are "+data.size()+" data points on line but should have 11 data points");
+			throw new IllegalArgumentException("Issue in gathering data for Goalie object \nThere are "+data.size()+" data points but should have 11 data points");
 		
 		String name = data.get(0);
 		Position position = Position.valueOf(data.get(1));

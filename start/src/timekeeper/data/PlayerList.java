@@ -212,5 +212,10 @@ public class PlayerList {
 		getGoalieByNumber(number).recordShutout();
 		getGoalieByNumber(number).addMinutesPlayed(minutesPlayed);
 	}
+	
+	public boolean isEmpty()
+	{
+		return players.isEmpty();
+	}
 
 }
