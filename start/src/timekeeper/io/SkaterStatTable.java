@@ -32,12 +32,19 @@ public class SkaterStatTable implements Table {
 	 * Construct skater stat table
 	 * 
 	 * @param playerList The PlayerList to store
+	 * Calls the getMap method of PlayerList to fill the RosterTable instance of
+	 * Map<String, Player>
 	 */
 	public SkaterStatTable(PlayerList playerList) {
 		this.playerList = playerList;
 		this.players = playerList.getMap();
 	}
 
+	/**
+	 * Helper method that creates a formatted String to represent a table
+	 * of all Skaters' Stats in the order of greatest points, goals, assists
+	 * and then natural ordering (smallest jersey number, name).
+	 */
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
@@ -63,12 +70,23 @@ public class SkaterStatTable implements Table {
 		return String.format(STATS_FORMAT_SKATER, skater.getName(), skater.getNumber(), skater.getPoints(), skater.getGoals(), skater.getAssists(), skater.getPowerPlayPoints(), skater.getPowerPlayGoals(), skater.getPowerPlayAssists(), skater.getShots(), String.format("%3.2f", skater.getShootingPercentage()));
 	}
 	
+	/**
+	 * Calls the createTableString method and returns the String
+	 */
 	@Override
 	public String toString()
 	{
 		return createTableString();
 	}
 	
+	/**
+	 * 
+	 * @return ArrayList<Skater>
+	 * 
+	 * Helper method that will go through the Map of String, Player and pick out every
+	 * Skater object to be placed into an ArrayList to be sorted later. After iterating
+	 * through the Map, method will return the ArrayList.
+	 */
 	private ArrayList<Skater> getSkatersFromMap()
 	{
 		ArrayList<Skater> skaters = new ArrayList<>();

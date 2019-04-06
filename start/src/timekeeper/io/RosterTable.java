@@ -43,7 +43,8 @@ public class RosterTable implements Table {
 
 	/**
 	 * Helper method that creates a formatted String to represent a table
-	 * of all Players' roster information.
+	 * of all Players' roster information. Players are ordered in natural
+	 * ordering (smallest jersey number, name).
 	 */
 	@Override
 	public String createTableString() {
