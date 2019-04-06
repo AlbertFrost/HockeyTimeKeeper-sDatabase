@@ -33,12 +33,18 @@ public class RosterTable implements Table {
 	 * Construct roster table
 	 * 
 	 * @param playerList The PlayerList to store
+	 * Calls the getMap method of PlayerList to fill the RosterTable instance of
+	 * Map<String, Player>
 	 */
 	public RosterTable(PlayerList playerList) {
 		this.playerList = playerList;
 		this.players = playerList.getMap();
 	}
 
+	/**
+	 * Helper method that creates a formatted String to represent a table
+	 * of all Players' roster information.
+	 */
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
@@ -64,6 +70,9 @@ public class RosterTable implements Table {
 		return String.format(ROSTER_FORMAT, player.getName(), player.getNumber(), player.getPosition(), player.getDateOfBirth(), player.getHomeTown(), player.getWeight(), player.getHeight());
 	}
 	
+	/**
+	 * Calls the createTableString method and returns the String
+	 */
 	@Override
 	public String toString()
 	{
