@@ -27,6 +27,15 @@ public class HometownTable implements Table{
 	 */
 	private static final String HOMETOWN_HEADER = String.format(HOMETOWN_FORMAT, "HOMETOWN", "COUNT", "PLAYERS");
 	
+	/**
+	 * Construct hometown table
+	 * 
+	 * @param playerList The PlayerList to store
+	 * Calls the getMap method of PlayerList to fill the HometownTable instance of
+	 * Map<String, Player>
+	 * Additionally fills other collection objects to have data ready to create the
+	 * table string.
+	 */
 	public HometownTable(PlayerList playerList)
 	{
 		System.out.println("Calling HometownTable class");

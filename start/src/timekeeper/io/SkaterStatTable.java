@@ -32,7 +32,7 @@ public class SkaterStatTable implements Table {
 	 * Construct skater stat table
 	 * 
 	 * @param playerList The PlayerList to store
-	 * Calls the getMap method of PlayerList to fill the RosterTable instance of
+	 * Calls the getMap method of PlayerList to fill the SkaterStatTable instance of
 	 * Map<String, Player>
 	 */
 	public SkaterStatTable(PlayerList playerList) {

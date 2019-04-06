@@ -32,12 +32,19 @@ public class GoalieStatTable implements Table {
 	/**
 	 * Construct goalie stat table
 	 * @param playerList The PlayerList to store
+	 * Calls the getMap method of PlayerList to fill the GoalieStatTable instance of
+	 * Map<String, Player>
 	 */
 	public GoalieStatTable(PlayerList playerList) {
 		this.playerList = playerList;
 		this.players = playerList.getMap();
 	}
 
+	/**
+	 * Helper method that creates a formatted String to represent a table
+	 * of all Goalies' Stats in the order of greatest save percentage
+	 * and then natural ordering (smallest jersey number, name).
+	 */
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STATS_HEADER_GOALIE).append("\n");
@@ -62,12 +69,23 @@ public class GoalieStatTable implements Table {
 		return String.format(STATS_FORMAT_GOALIE, goalie.getName(), goalie.getNumber(), goalie.getShotsAgainst(), goalie.getGoalsAgainst(), String.format("%4.2f", goalie.getGoalsAgainstAverage()), String.format("%5.3f", goalie.getSavePercentage()), goalie.getShutouts(), goalie.getMinutes());
 	}
 	
+	/**
+	 * Calls the createTableString method and returns the String
+	 */
 	@Override
 	public String toString()
 	{
 		return createTableString();
 	}
 	
+	/**
+	 * 
+	 * @return ArrayList<Skater>
+	 * 
+	 * Helper method that will go through the Map of String, Player and pick out every
+	 * Goalie object to be placed into an ArrayList to be sorted later. After iterating
+	 * through the Map, method will return the ArrayList.
+	 */
 	private ArrayList<Goalie> getGoaliesFromMap()
 	{
 		ArrayList<Goalie> goalies = new ArrayList<>();
