@@ -10,9 +10,13 @@ import timekeeper.data.*;
 public class HometownTable implements Table{
 
 	private PlayerList playerList;
-	private ArrayList<String> hometownList;
-	private static Map<String, Player> players;
-	private static Map<String, Integer> hometownMap;
+	
+	/**
+	 * Collections to organize data and information
+	 */
+	private ArrayList<String> hometownList; //To have a collection that can sort hometowns by alphabet
+	private static Map<String, Player> players; //Collection to take in the data from PlayerList
+	private static Map<String, Integer> hometownMap; //Collection to save hometown and the amount of players from that hometown
 	
 	/**
 	 * Format for hometown table
@@ -32,6 +36,11 @@ public class HometownTable implements Table{
 		createMapOfHometown();
 	}
 
+	/**
+	 * Using StringBuilder to create a formatted String that represents the hometowns
+	 * of the Players. Table is organized by alphabetical order which each hometown
+	 * will show how many Players are from it and all the Players' name and number.
+	 */
 	@Override
 	public String createTableString() {
 		StringBuilder sb = new StringBuilder();
@@ -46,16 +55,34 @@ public class HometownTable implements Table{
 		return sb.toString();
 	}
 	
+	/**
+	 * Calls the createTableString method and returns the formatted table String
+	 */
 	@Override
 	public String toString()
 	{
 		return createTableString();
 	}
 	
+	/**
+	 * @param hometown
+	 * @return String
+	 * 
+	 * Takes the hometown name and creates a formatted line which includes the
+	 * amount of Players from it and the Players' name and number
+	 */
 	private static String getFormattedStats(String hometown) {
 		return String.format(HOMETOWN_FORMAT, hometown, hometownMap.get(hometown), getPlayersColumnString(hometown));
 	}
 	
+	/**
+	 * @param hometown
+	 * @return String
+	 * 
+	 * Takes the hometown name and goes through the Map of Player and String to
+	 * find each Player from that hometown and create a formatted String to be
+	 * placed into a line in the table. 
+	 */
 	private static String getPlayersColumnString(String hometown)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -82,6 +109,11 @@ public class HometownTable implements Table{
 		return sb.toString();
 	}
 	
+	/**
+	 * This method is called in the constructor to setup the Map with
+	 * hometown and integer as well add every unique hometown to the
+	 * hometown list.
+	 */
 	private void createMapOfHometown()
 	{
 		hometownMap = new HashMap<String, Integer>();
